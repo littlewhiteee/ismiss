@@ -1,0 +1,46 @@
+<footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %>
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://ismiss.cn" target="_blank">一日复一日</a>
+      	</div>
+    </div>
+  </div>
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+      <script>
+      var now = new Date(); 
+      function createtime(){ 
+          var grt= new Date("1/31/2017 00:00:00");//此处修改你的建站时间或者网站上线时间 
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24; 
+          dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); 
+          hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          } 
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); 
+          if(String(mnum).length ==1 ){
+                   mnum = "0" + mnum;
+          } 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); 
+          if(String(snum).length ==1 ){
+                   snum = "0" + snum;
+          } 
+          document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天"; 
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒"; 
+      } 
+      setInterval("createtime()",250);
+
+</script>
+ <p></p>
+  <img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+<a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">渝ICP备19010842号-1</a>
+
+</footer>
